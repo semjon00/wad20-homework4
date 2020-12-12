@@ -103,4 +103,8 @@ describe('Posts', () => {
     it('1 == 1', function () {
         expect(true).toBe(true)
     });
+
+    it('renders correct number of posts', () => {
+        expect(wrapper.findAll('div.post').length).toBe(testData.length);
+    });
 });
