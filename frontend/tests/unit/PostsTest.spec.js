@@ -107,4 +107,29 @@ describe('Posts', () => {
     it('renders correct number of posts', () => {
         expect(wrapper.findAll('div.post').length).toBe(testData.length);
     });
+
+    it('renders correct media if present', () => {
+        const postWrappers = wrapper.findAll('div.post');
+        
+        testData.map((post, i) => {
+            const postWrap = postWrappers.at(i); // Locate the post by index in WrapperArray
+            if (post.media) { // Post has media
+
+                if(post.media.type == 'video') {
+                    // Use the ".post-image" css class to find the correct image (not the user avatar.)
+                    // NB: The CSS class is badly named, all media is inside this div both video 
+                    // and image.
+                    expect(postWrap.findAll(".post-image video").length).toBe(1);
+                } else if (post.media.type == 'image') {
+                    // TODO find video
+                } else {
+                    expect(true).toBe(false); // We have no other media types
+                }
+            } else { // Post has no media.
+                expect(postWrap.find(".post-image img").exists()).toBe(false);
+                // TODO check that we have no video
+            }
+        })
+
+    });
 });
