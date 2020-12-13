@@ -132,4 +132,7 @@ describe('Posts', () => {
         })
 
     });
+    //it('renders correct post time format', () => {
+    //    expect(wrapper.findAll('post.create_time').data).toBe("Saturday, December 5, 2020 1:53 PM");
+   // });
 });
