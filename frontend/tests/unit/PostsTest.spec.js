@@ -121,7 +121,7 @@ describe('Posts', () => {
                     // and image.
                     expect(postWrap.findAll(".post-image video").length).toBe(1);
                 } else if (post.media.type == 'image') {
-                    expect(postWrap.findAll(".post-image img").exists()).toBe(true);
+                    expect(postWrap.findAll(".post-image img").length).toBe(1);
                 } else {
                     expect(true).toBe(false); // We have no other media types
                 }
@@ -132,7 +132,12 @@ describe('Posts', () => {
         })
 
     });
-    //it('renders correct post time format', () => {
-    //    expect(wrapper.findAll('post.create_time').data).toBe("Saturday, December 5, 2020 1:53 PM");
-   // });
+   // it('renders correct post time format', () => {
+   //    const postWrappers = wrapper.findAll('div.post.create_time');
+
+    //    testData.map((post, i) => {
+    //        const postWrap = postWrappers.at(i);
+    //        expect(postWrap.text()).toBe('Saturday, December 5, 2020 1:53 PM');
+    //    })
+    //});
 });
