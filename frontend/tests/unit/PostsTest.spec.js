@@ -121,13 +121,13 @@ describe('Posts', () => {
                     // and image.
                     expect(postWrap.findAll(".post-image video").length).toBe(1);
                 } else if (post.media.type == 'image') {
-                    // TODO find video
+                    expect(postWrap.findAll(".post-image img").exists()).toBe(true);
                 } else {
                     expect(true).toBe(false); // We have no other media types
                 }
             } else { // Post has no media.
                 expect(postWrap.find(".post-image img").exists()).toBe(false);
-                // TODO check that we have no video
+                expect(postWrap.find(".post-image video").exists()).toBe(false);
             }
         })
 
